@@ -48,9 +48,13 @@
       <div id="unity-warning"></div>
       <!--<div id="unity-footer">
         <div id="unity-webgl-logo"></div>-->
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Full Screen mode</div>
-        <div style="font-family: 'Arial Black', sans-serif; font-size: 28px; color: #010b16; text-shadow: 2px 2px 4px #15669b;">FATE ADVENTURE RPG - BETA - V1.0 </div>
+        <div id="unity-rotate-button"></div>
+        <div id="unity-build-title" style="color:beige">Rotate Screen</div>
+        <div style="font-family: 'Arial Black', sans-serif; font-size: 22px; color: #010b16; text-shadow: 2px 2px 4px #15669b;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none">BETA PvP Format 3 - This does not represent the final released game. </div>
       </div>
     </div>
     <script>
@@ -84,11 +88,7 @@
           //   } else {
           document.getElementById("unity-container").style.textAlign = "center";
 
-          var fullscreenButton = document.getElementById("unity-fullscreen-button");
-          fullscreenButton.style.display = "none";
-
-          var buildTitle = document.getElementById("unity-build-title");
-          buildTitle.style.display = "none";
+          
 
           //    mainCanvas.style.position = "relative";
           //    mainCanvas.style.left = Math.abs(((1280 - document.body.offsetWidth)/4)) + 'px';
@@ -130,8 +130,13 @@
           //myDiv.textContent = "openALPHA - expect bugs.";
           //myDiv.style.height = Heightoffset + 'px';
           //remove fullscreen mode for Mobile since the size will be wrong.
-          document.getElementById("unity-fullscreen-button").style.display = 'none';
+          
         } else {
+          var rotateButton = document.getElementById("unity-rotate-button");
+          rotateButton.style.display = "none";
+
+          var buildTitle = document.getElementById("unity-build-title");
+          buildTitle.style.display = "none";
           mainDiv.style.textAlign = "center";
           const minCanvasWidth = 1280 / pixelRatio;
           const maxCanvasWidth = 1280 / pixelRatio;
@@ -177,7 +182,7 @@
       var canvas = document.querySelector("#unity-canvas");
       var loadingBar = document.querySelector("#unity-loading-bar");
       var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      //var fullscreenButton = document.querySelector("#unity-fullscreen-button");
       var warningBanner = document.querySelector("#unity-warning");
       // Shows a temporary message banner/ribbon for a few seconds, or
       // a permanent error message on top of the canvas if type=='error'.
@@ -240,9 +245,9 @@
         }).then((unityInstance) => {
           window.unityInstance = unityInstance;
           loadingBar.style.display = "none";
-          fullscreenButton.onclick = () => {
+          /*fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
-          };
+          };*/
         }).catch((message) => {
           alert(message);
         });
@@ -286,5 +291,10 @@
     console.log('zzzAggressive gas price:', zzz);
  */ 
   </script>
+
+
+
+
+
   </body>
 </html>

@@ -10,7 +10,12 @@
     <p id="userAgent"></p>
 
     <script>
-        document.getElementById("userAgent").textContent = navigator.userAgent;
+        var userAgentElement = document.getElementById("userAgent");
+        if (navigator.userAgent) {
+            userAgentElement.textContent = navigator.userAgent;
+        } else {
+            userAgentElement.textContent = "User agent information not available.";
+        }
     </script>
 </body>
 </html>

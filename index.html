@@ -10,11 +10,13 @@
     <p id="userAgent"></p>
 
     <script>
-        var userAgentElement = document.getElementById("userAgent");
-        if (navigator.userAgent) {
+        try {
+            var userAgentElement = document.getElementById("userAgent");
             userAgentElement.textContent = navigator.userAgent;
-        } else {
-            userAgentElement.textContent = "User agent information not available.";
+        } catch (error) {
+            var errorMessage = "Error accessing user agent information: " + error.message;
+            console.error(errorMessage);
+            alert(errorMessage);
         }
     </script>
 </body>
